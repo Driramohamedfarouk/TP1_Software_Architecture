@@ -1,0 +1,30 @@
+@startuml
+class EncodingModule{
+
+}
+interface IFileEncoding {
+}
+class FileEncoding{
+}
+IFileEncoding <|.. FileEncoding
+
+interface INetworkDBENcoding{
+}
+class NetworkDBENcoding{
+}
+INetworkDBENcoding <|.. NetworkDBENcoding
+
+EncodingModule ..> IFileEncoding
+EncodingModule ..> INetworkDBENcoding
+
+class EncodingModuleClient{
+}
+
+EncodingModuleClient ..> EncodingModule
+
+class MyDatabase
+interface IDatabase
+
+NetworkDBENcoding ..> IDatabase
+IDatabase <|.. MyDatabase
+@enduml

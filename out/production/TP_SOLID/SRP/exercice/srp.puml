@@ -1,0 +1,11 @@
+@startuml
+class CarManager{
+    -db : CarDB
+}
+class CarDB
+class Car
+
+CarManager ..> CarDB
+CarDB o-- Car
+
+@enduml
