@@ -1,4 +1,4 @@
-package ISP.exrcise;
+package ISP.exercice;
 
 public interface ISensDoor {
     void lock();

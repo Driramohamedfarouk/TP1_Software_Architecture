@@ -1,14 +1,13 @@
-package ISP.exrcise;
+package ISP.exercice;
 
 
-public class TimedDoor implements ITimeDoor {
-    private static final int TIME_OUT = 100;
+public class SensingDoor implements ISensDoor {
     private boolean _locked;
     private boolean _opened;
 
-    public TimedDoor(Timer timer)
+    public SensingDoor(Sensor sensor)
     {
-        timer.register(TIME_OUT, this);
+        sensor.register(this);
     }
 
     @Override
@@ -37,11 +36,10 @@ public class TimedDoor implements ITimeDoor {
         _opened = false;
     }
 
+
     @Override
-    public void timeOutCallback()
+    public void proximityCallback()
     {
-        _locked = true;
+        _opened = true;
     }
-
-
 }

@@ -1,4 +1,4 @@
-package ISP.exrcise;
+package ISP.exercice;
 
 
 import java.util.TimerTask;
