@@ -1,0 +1,45 @@
+@startuml
+
+class ResourceManger{
+    +free( r : Resource , resourceId : int )
+    +allocate( r : Resource )
+}
+
+interface Resource {
+    +free(resourceId : int)
+    +allocate()
+}
+
+
+
+abstract class AbstractResource{
+    -resourceId : int
+    +findFreeSlot()
+    +markSlotFree(int resourceId)
+    +markSlotBusy(int resourceId)
+}
+class TimeSlot{
+    +free(resourceId : int)
+    +allocate()
+    +findFreeSlot()
+    +markSlotFree(int resourceId)
+    +markSlotBusy(int resourceId)
+}
+class SpaceSlot{
+    +free(resourceId : int)
+    +allocate()
+    +findFreeSlot()
+    +markSlotFree(int resourceId)
+    +markSlotBusy(int resourceId)
+}
+
+ResourceManger ..> Resource
+
+Resource <|.. TimeSlot
+Resource <|.. SpaceSlot
+
+AbstractResource <|-- TimeSlot
+AbstractResource <|-- SpaceSlot
+
+
+@enduml
