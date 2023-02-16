@@ -1,15 +1,14 @@
-package ISP.exercice;
+package ISP.exrcise;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-public class SensingDoor implements Door
-{
+public class TimedDoor implements ITimeDoor {
+    private static final int TIME_OUT = 100;
     private boolean _locked;
     private boolean _opened;
 
-    public SensingDoor(Sensor sensor)
+    public TimedDoor(Timer timer)
     {
-        sensor.register(this);
+        timer.register(TIME_OUT, this);
     }
 
     @Override
@@ -41,12 +40,8 @@ public class SensingDoor implements Door
     @Override
     public void timeOutCallback()
     {
-        throw new NotImplementedException();
+        _locked = true;
     }
 
-    @Override
-    public void proximityCallback()
-    {
-        _opened = true;
-    }
+
 }

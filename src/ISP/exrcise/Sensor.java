@@ -1,10 +1,11 @@
-package ISP.exercice;
+package ISP.exrcise;
+
+
 
 import java.util.Random;
 
-public class Sensor
-{
-    public void register(Door door)
+public class Sensor {
+    public void register(ISensDoor door)
     {
         while (true) {
             if (isPersonClose()) {

@@ -1,7 +1,6 @@
-package ISP.exercice;
+package ISP.exrcise;
 
-public interface Door
-{
+public interface ITimeDoor {
     void lock();
 
     void unlock();
@@ -11,6 +10,4 @@ public interface Door
     void close();
 
     void timeOutCallback();
-
-    void proximityCallback();
 }
