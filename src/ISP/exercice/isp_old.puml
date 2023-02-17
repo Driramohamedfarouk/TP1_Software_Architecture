@@ -1,55 +1,37 @@
 @startuml
-'https://plantuml.com/class-diagram
-
-
-
-
-
-Door <|.. SensingDoor
-Door <|.. TimedDoor
-Sensor ..> Door
-Timer ..> Door
 
 interface Door {
-lock()
-unlock()
-open()
-close()
-proximityCallback()
-timeOutCallback()
+    +lock()
+
+    +unlock()
+
+    +open()
+
+    +close()
+
+    +proximityCallback()
+    +timeOutCallback()
 }
 
-class SensingDoor {
--_locked : boolean
--_opened : boolean
-lock()
-unlock()
-open()
-close()
-proximityCallback()
-timeOutCallback()
+class SensingDoor implements Door {
+ 
 }
+class TimedDoor implements Door  {
 
-class TimedDoor {
--_locked : boolean
--_opened : boolean
-lock()
-unlock()
-open()
-close()
-proximityCallback(
-timeOutCallback()
 }
 
 class Sensor {
-+register()
--isPersonClose():boolean
+    + register(ISensDoor door): void
+    - isPersonClose(): boolean
+
 }
 
 class Timer {
-+register()
+    + register(long timeOut, final ITimeDoor door): void
 }
 
+Sensor ..> Door
+Timer ..> Door
 
 
 @enduml

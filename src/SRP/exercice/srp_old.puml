@@ -1,0 +1,12 @@
+@startuml
+class CarManager{
+    + getFromDb(final String carId): Car
+    + getCarsNames(): String
+    + getBestCar(): Car
+}
+
+class Car
+
+CarManager o-- Car
+
+@enduml
