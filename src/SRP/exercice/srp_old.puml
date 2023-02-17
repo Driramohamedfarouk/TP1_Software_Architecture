@@ -5,7 +5,14 @@ class CarManager{
     + getBestCar(): Car
 }
 
-class Car
+class Car{
+-  _id: String
+- model: String
+- _brand: String
++ getId()
++ getModel()
++ getBrand()
+}
 
 CarManager o-- Car
 

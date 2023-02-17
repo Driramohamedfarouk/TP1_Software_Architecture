@@ -2,13 +2,9 @@
 
 interface Door {
     +lock()
-
     +unlock()
-
     +open()
-
     +close()
-
     +proximityCallback()
     +timeOutCallback()
 }

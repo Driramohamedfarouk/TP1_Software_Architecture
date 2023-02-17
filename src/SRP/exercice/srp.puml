@@ -1,9 +1,22 @@
 @startuml
 class CarManager{
     -db : CarDB
+    + getFromDb(final String carId): Car
+        + getCarsNames(): String
+        + getBestCar(): Car
 }
-class CarDB
-class Car
+class CarDB{
+-_carsDb:List
++ getCarsDb():List
+}
+class Car{
+-  _id: String
+- model: String
+- _brand: String
++ getId()
++ getModel()
++ getBrand()
+}
 
 CarManager ..> CarDB
 CarDB o-- Car
