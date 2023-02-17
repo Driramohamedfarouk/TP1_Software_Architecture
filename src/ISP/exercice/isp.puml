@@ -1,0 +1,42 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+interface ISensDoor
+interface ITimeDoor
+
+
+
+ISensDoor <|.. SensingDoor
+ITimeDoor <|.. TimedDoor
+Sensor ..> ISensDoor
+Timer ..> ITimeDoor
+
+
+
+class SensingDoor {
+-_locked : boolean
+-_opened : boolean
+}
+
+class TimedDoor {
+-_locked : boolean
+-_opened : boolean
+}
+
+class Sensor {
++register()
+-isPersonClose():boolean
+}
+
+class Timer {
++register()
+}
+
+class Timer {
++register()
+}
+
+
+
+@enduml
