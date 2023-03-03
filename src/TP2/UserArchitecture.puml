@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/component-diagram
+
+
+package "User Views"{
+  [Create_Profile view]
+  [Update_Profile view]
+  [Show_Profile view]
+  [Delete_Profile  view]
+}
+
+HTTP -- [Create_Profile view]
+HTTP -- [Update_Profile view]
+HTTP -- [Show_Profile view]
+HTTP -- [Delete_Profile  view]
+
+node "Controller" {
+  [User Controller] --> HTTP
+}
+
+cloud "Model" {
+  [User]
+}
+
+[User Controller] --> [User]
+
+
+
+
+database "MySql" {
+  folder "Table" {
+    [table_user]
+  }
+}
+
+
+[User] --> [table_user]
+
+@enduml

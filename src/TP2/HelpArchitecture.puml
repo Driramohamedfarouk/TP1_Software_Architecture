@@ -1,0 +1,45 @@
+@startuml
+'https://plantuml.com/component-diagram
+
+
+package "Help Views"{
+  [FAQ view]
+  [List_Contacts view]
+  [List_centers view]
+  [Write_us  view]
+}
+
+HTTP -- [FAQ view]
+HTTP -- [List_Contacts view]
+HTTP -- [List_centers view]
+HTTP -- [Write_us  view]
+
+node "Controller" {
+  [Help Controller] --> HTTP
+}
+
+cloud "Models" {
+  [Center]
+  [FAQ]
+}
+
+[Help Controller] --> [Center]
+[Help Controller] --> [FAQ]
+
+
+
+
+database "MySql" {
+  folder "This is my folder" {
+    [Folder 3]
+  }
+  frame "Foo" {
+    [Frame 4]
+  }
+}
+
+
+[Center] --> [Folder 3]
+[Folder 3] --> [Frame 4]
+
+@enduml

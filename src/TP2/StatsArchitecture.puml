@@ -1,0 +1,46 @@
+@startuml
+'https://plantuml.com/component-diagram
+
+
+node "Controller" {
+  [Stats Controller] -- HTTP
+}
+
+package "Stat Views" {
+  [Map view]
+  [Vaccine stats]
+  [region stats]
+  [stat-home view]
+}
+HTTP -- [Map view]
+HTTP -- [Vaccine stats]
+HTTP -- [region stats]
+HTTP -- [stat-home view]
+
+
+
+
+cloud "Model" {
+  [Stats Model]
+}
+
+
+database "MySql" {
+  folder "This is my folder" {
+    [Folder 3]
+  }
+  frame "Foo" {
+    [Frame 4]
+  }
+}
+
+
+[Stats Controller] --> [Stats Model]
+[Stats Model] --> [Folder 3]
+[Folder 3] --> [Frame 4]
+[stat-home view] .. [Stats Model]
+[region stats].. [Stats Model]
+[Vaccine stats] .. [Stats Model]
+[Map view] .. [Stats Model]
+
+@enduml

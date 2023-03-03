@@ -1,0 +1,58 @@
+@startuml
+'https://plantuml.com/component-diagram
+
+database "MySql" {
+  folder "This is my folder" {
+    [Folder 3]
+  }
+  frame "Foo" {
+    [Frame 4]
+  }
+}
+
+
+package "User Views" {
+  [Login view]
+  [sign up view]
+  [update profile view]
+  [home view]
+}
+
+node "Controller" {
+ [User Controller] - HTTP
+ HTTP - [Login view]
+ HTTP - [sign up view]
+ HTTP - [home view]
+ HTTP - [update profile view]
+}
+
+
+cloud {
+  [Model User]
+}
+
+cloud {
+  [Example 1]
+}
+
+
+
+
+
+package "Help Views"{
+  [FAQ view]
+  [Contacts info view]
+  [list of centers view]
+  [form view]
+}
+
+
+
+
+
+[Folder 3] --> [Frame 4]
+[Model User] --> [User Controller]
+
+
+
+@enduml

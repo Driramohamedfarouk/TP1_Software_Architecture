@@ -15,5 +15,6 @@ class Car{
 }
 
 CarManager o-- Car
+class user{}
 
 @enduml

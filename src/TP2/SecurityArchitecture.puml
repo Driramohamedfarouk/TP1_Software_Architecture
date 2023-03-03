@@ -1,0 +1,36 @@
+@startuml
+'https://plantuml.com/component-diagram
+
+
+package "Security Views"{
+  [Login view]
+  [Two_Factor_Auth view]
+  [Forgot_Passowrd view]
+}
+
+HTTP -- [Login view]
+HTTP -- [Two_Factor_Auth view]
+HTTP -- [Forgot_Passowrd view]
+
+node "Controller" {
+  [Auth Controller] --> HTTP
+}
+
+cloud "Model" {
+  [User]
+}
+
+[Auth Controller] --> [User]
+
+
+
+
+database "MySql" {
+  folder "Table" {
+    [table_user]
+  }
+}
+
+
+[User] --> [table_user]
+@enduml
